@@ -948,7 +948,7 @@ guard
   let number1 = number1,
   let number2 = number2,
   let number3 = number3 
-  else {
+else {
     fatalError("impossible")
 }
 // do something with numbers
