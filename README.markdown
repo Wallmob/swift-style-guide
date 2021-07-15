@@ -122,12 +122,30 @@ let myClass = MyModule.UsefulClass()
 
 ### Delegates
 
-When creating custom delegate methods, an unnamed first parameter should be the delegate source. (UIKit contains numerous examples of this.)
+All methods take the delegate’s source object as the first argument.
+
+For methods that take the delegate’s source object as their only argument:
+
+**Preferred**:
+```swift
+func scrollViewDidBeginScrolling(_ scrollView: UIScrollView)
+func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool
+func numberOfSections(in scrollView: UIScrollView) -> Int
+```
+For methods that take additional arguments after the delegate’s source object, the method’s base name is the delegate’s source type by itself and the first argument is unlabeled
 
 **Preferred**:
 ```swift
 func namePickerView(_ namePickerView: NamePickerView, didSelectName name: String)
-func namePickerViewShouldReload(_ namePickerView: NamePickerView) -> Bool
+func tableView(
+  _ tableView: UITableView,
+  willDisplayCell cell: UITableViewCell,
+  forRowAt indexPath: IndexPath
+)
+func tableView(
+  _ tableView: UITableView,
+  heightForRowAt indexPath: IndexPath
+) -> CGFloat
 ```
 
 **Not Preferred**:
