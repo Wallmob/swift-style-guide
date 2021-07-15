@@ -940,7 +940,7 @@ func computeFFT(context: Context?, inputData: InputData?) throws -> Frequencies 
 }
 ```
 
-When multiple optionals are unwrapped either with `guard` or `if let`, minimize nesting by using the compound version when possible. In the compound version, place the `guard` on its own line, then indent each condition on its own line. The `else` clause is indented to match the conditions and the code is indented one additional level, as shown below. Example:
+When multiple optionals are unwrapped either with `guard` or `if let`, minimize nesting by using the compound version when possible. In the compound version, place the `guard` on its own line, then indent each condition on its own line. The `else` clause is indented to match the `guard` itself, as shown below. Example:
 
 **Preferred**:
 ```swift
@@ -949,7 +949,7 @@ guard
   let number2 = number2,
   let number3 = number3 
 else {
-    fatalError("impossible")
+  fatalError("impossible")
 }
 // do something with numbers
 ```
@@ -1075,7 +1075,7 @@ The following copyright statement should be included at the top of every source
 file:
 
 ```swift
-/// Copyright (c) 2020 Razeware LLC
+/// Copyright (c) 2021 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
